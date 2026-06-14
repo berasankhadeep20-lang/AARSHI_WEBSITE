@@ -114,18 +114,11 @@ strong { color: var(--gold); font-weight: 600; }
   flex-direction: column;
   line-height: 1.1;
 }
-.nav-logo-main {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: var(--gold);
-  letter-spacing: 0.08em;
-}
 .nav-logo-sub {
-  font-size: 0.65rem;
-  color: var(--muted);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  display: none; /* replaced by image */
+}
+.nav-logo-main {
+  display: none; /* replaced by image */
 }
 .nav-links {
   list-style: none;
@@ -226,20 +219,7 @@ strong { color: var(--gold); font-weight: 600; }
   animation: fadeUp 0.8s 0.2s var(--ease-out-expo) forwards;
 }
 .hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(5rem, 16vw, 11rem);
-  font-weight: 900;
-  font-style: italic;
-  line-height: 0.9;
-  color: var(--white);
-  letter-spacing: -0.02em;
-  margin-bottom: 0.6rem;
-  opacity: 0;
-  animation: fadeUp 0.9s 0.4s var(--ease-out-expo) forwards;
-}
-.hero-title em {
-  color: var(--gold);
-  font-style: italic;
+  display: none; /* replaced by hero-logo-img */
 }
 .hero-subtitle {
   font-family: var(--font-italic);
@@ -678,12 +658,7 @@ strong { color: var(--gold); font-weight: 600; }
   text-align: center;
 }
 .footer-logo-main {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-style: italic;
-  color: var(--gold);
-  font-weight: 700;
+  display: none; /* replaced by image */
 }
 .footer-logo-tagline {
   display: block;
@@ -706,7 +681,53 @@ strong { color: var(--gold); font-weight: 600; }
 .footer-links a:hover { color: var(--gold); }
 .footer-copy { font-size: 0.8rem; color: rgba(154,154,138,0.5); }
 
-/* --- ANIMATIONS --- */
+/* --- LOGO IMAGE STYLES --- */
+
+/* Curtain logo */
+.curtain-logo {
+  display: block;
+  width: min(340px, 55vw);
+  height: auto;
+  margin: 0 auto 1rem;
+  filter: drop-shadow(0 0 24px rgba(232,197,71,0.35));
+}
+
+/* Nav logo image */
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+.nav-logo-img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  /* white logo image on dark nav - keep as-is */
+}
+
+/* Hero logo */
+.hero-logo-wrap {
+  opacity: 0;
+  animation: fadeUp 0.9s 0.4s var(--ease-out-expo) forwards;
+  margin-bottom: 1.2rem;
+}
+.hero-logo-img {
+  width: min(600px, 82vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 40px rgba(232,197,71,0.18));
+}
+
+/* Footer logo */
+.footer-logo-img {
+  height: 64px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
