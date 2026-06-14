@@ -526,8 +526,9 @@ strong { color: var(--gold); font-weight: 600; }
 .team-card {
   background: var(--dark);
   border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 10px;
-  padding: 1.75rem;
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem 1.5rem;
+  text-align: center;
   transition: border-color 0.2s, transform 0.2s;
 }
 .team-card:hover { border-color: rgba(232,197,71,0.3); transform: translateY(-3px); }
@@ -536,22 +537,48 @@ strong { color: var(--gold); font-weight: 600; }
   background: linear-gradient(135deg, rgba(232,197,71,0.07) 0%, var(--dark) 60%);
   border-color: rgba(232,197,71,0.2);
 }
+
+/* Photo */
+.team-photo-wrap {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1.1rem;
+  border-radius: 50%;
+  border: 2px solid rgba(232,197,71,0.45);
+  padding: 3px;
+  background: var(--dark-2);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.team-card--secretary .team-photo-wrap {
+  width: 120px;
+  height: 120px;
+}
+.team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  display: block;
+}
+
 .team-role {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 .team-name {
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: var(--white);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 .team-contact {
-  font-size: 0.875rem;
+  font-size: 0.82rem;
   color: var(--muted);
   transition: color 0.2s;
 }
@@ -760,6 +787,7 @@ strong { color: var(--gold); font-weight: 600; }
   .trophy-divider { width: 100%; height: 1px; }
   .team-grid { grid-template-columns: 1fr 1fr; }
   .team-card--secretary { grid-column: 1 / -1; }
+  .team-card--secretary .team-photo-wrap { width: 110px; height: 110px; }
   .contact-grid { grid-template-columns: 1fr; }
   .about-pillars { grid-template-columns: 1fr; }
 }
