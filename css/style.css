@@ -716,6 +716,10 @@ strong { color: var(--gold); font-weight: 600; }
 .lb-prev { left: 1.5rem; }
 .lb-next { right: 1.5rem; }
 
+/* --- PAST EVENTS --- */
+.past-events-section { background: var(--dark); }
+.past-filters { margin-bottom: 2rem; }
+
 /* --- ACHIEVEMENTS --- */
 .achievements { background: var(--dark); }
 .trophy-banner {

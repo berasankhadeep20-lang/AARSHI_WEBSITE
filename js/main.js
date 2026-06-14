@@ -225,4 +225,38 @@
     });
   });
 
+  /* --- PAST EVENTS FILTER --- */
+  const pastFilterBtns = document.querySelectorAll("[data-past-filter]");
+  const pastItems      = document.querySelectorAll(".past-item");
+
+  pastFilterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      pastFilterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const filter = btn.dataset.pastFilter;
+      pastItems.forEach((item) => {
+        if (filter === "all" || item.dataset.past === filter) {
+          item.classList.remove("hidden");
+        } else {
+          item.classList.add("hidden");
+        }
+      });
+    });
+  });
+
+  /* Past items open in shared lightbox */
+  pastItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const visiblePast = Array.from(pastItems).filter(
+        (el) => !el.classList.contains("hidden")
+      );
+      const idx = visiblePast.indexOf(item);
+      visibleItems = visiblePast;
+      currentIndex = idx;
+      showLbImage();
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
 })();
