@@ -5,7 +5,34 @@
 (function () {
   "use strict";
 
-  /* --- CURTAIN REVEAL --- */
+  /* --- THEME TOGGLE --- */
+  const themeToggle = document.getElementById("themeToggle");
+  const root = document.documentElement;
+
+  // Initialise: use saved preference, then system preference, then default dark
+  const savedTheme = localStorage.getItem("aarshi-theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+  root.setAttribute("data-theme", initialTheme);
+
+  function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    localStorage.setItem("aarshi-theme", theme);
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      applyTheme(current === "dark" ? "light" : "dark");
+    });
+  }
+
+  // Listen for OS-level changes
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+    if (!localStorage.getItem("aarshi-theme")) {
+      applyTheme(e.matches ? "dark" : "light");
+    }
+  });
   const curtain = document.getElementById("curtain");
   if (curtain) {
     // Small delay so user sees the curtain, then open
