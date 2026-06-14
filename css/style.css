@@ -584,6 +584,27 @@ strong { color: var(--gold); font-weight: 600; }
 }
 .prod-tag em { font-style: normal; color: var(--gold); font-size: 0.75rem; }
 
+.prod-tag--link {
+  text-decoration: none;
+  border-color: rgba(232,197,71,0.4);
+  background: rgba(232,197,71,0.12);
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  gap: 0.5rem;
+}
+.prod-tag--link:hover {
+  background: rgba(232,197,71,0.22);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  color: var(--parchment);
+}
+.prod-watch {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
 /* --- GALLERY --- */
 .gallery { background: var(--black); }
 
