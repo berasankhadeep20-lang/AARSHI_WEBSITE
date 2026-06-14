@@ -809,6 +809,71 @@ strong { color: var(--gold); font-weight: 600; }
 .ach-item strong { color: var(--parchment); font-weight: 600; }
 .ach-item span { font-size: 0.82rem; color: var(--muted); }
 
+/* --- RENOWNED FACES --- */
+.renowned { background: var(--black); }
+
+.renowned-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.renowned-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+  padding: 2rem 1.5rem;
+  background: var(--dark);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.renowned-card:hover {
+  border-color: rgba(232,197,71,0.3);
+  transform: translateY(-4px);
+}
+
+.renowned-photo-wrap {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(232,197,71,0.4);
+  padding: 4px;
+  background: var(--dark-2);
+  flex-shrink: 0;
+  position: relative;
+}
+.renowned-photo-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 20px rgba(232,197,71,0.08);
+  pointer-events: none;
+}
+.renowned-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  display: block;
+}
+
+.renowned-info { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+
+.renowned-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+
 /* --- TEAM --- */
 .team { background: var(--black); }
 .team-grid {
@@ -1128,6 +1193,8 @@ strong { color: var(--gold); font-weight: 600; }
   .event-card--featured .event-desc { grid-column: 1; grid-row: auto; }
   .trophy-banner { flex-direction: column; }
   .trophy-divider { width: 100%; height: 1px; }
+  .renowned-grid { grid-template-columns: 1fr 1fr; }
+  .poster-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr 1fr; }
   .team-card--secretary { grid-column: 1 / -1; }
   .team-card--secretary .team-photo-wrap { width: 110px; height: 110px; }
@@ -1154,6 +1221,7 @@ strong { color: var(--gold); font-weight: 600; }
   .nav-links a { padding: 0.75rem 1rem; font-size: 1rem; }
   .nav-toggle { display: flex; }
   .team-grid { grid-template-columns: 1fr; }
+  .renowned-grid { grid-template-columns: 1fr; }
   .section { padding: 4rem 1.25rem; }
   .hero-content { padding-top: 5rem; }
   .gallery-grid { grid-template-columns: 1fr; }
