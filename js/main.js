@@ -190,4 +190,39 @@
     if (e.key === "ArrowLeft")  { currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length; showLbImage(); }
   });
 
+  /* --- IICM GALLERY FILTER --- */
+  const iicmFilterBtns = document.querySelectorAll("[data-iicm-filter]");
+  const iicmItems      = document.querySelectorAll(".iicm-item");
+
+  iicmFilterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      iicmFilterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const filter = btn.dataset.iicmFilter;
+      iicmItems.forEach((item) => {
+        if (filter === "all" || item.dataset.iicm === filter) {
+          item.classList.remove("hidden");
+        } else {
+          item.classList.add("hidden");
+        }
+      });
+    });
+  });
+
+  /* Make IICM items open in the same shared lightbox */
+  iicmItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const visibleIicm = Array.from(iicmItems).filter(
+        (el) => !el.classList.contains("hidden")
+      );
+      const idx = visibleIicm.indexOf(item);
+      /* Temporarily set visibleItems to the IICM set */
+      visibleItems = visibleIicm;
+      currentIndex = idx;
+      showLbImage();
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
 })();
